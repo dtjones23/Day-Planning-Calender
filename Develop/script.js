@@ -3,16 +3,20 @@
 // in the html.
 
 // creates the current date
-var today = dayjs();
-var currentDay = dayjs().format('[Today\'s\ date is]'+ today);
-// displays current date
-$('#currentDay').text(today);
+function updatecurrentTime() {
+  const today = dayjs()
+  const formattedTime = today.format('HH:mm:ss')
 
-
-
-
-
-$(function () {
+  // displays running time in header
+  $('#current-time').text(formattedTime)
+    
+}  
+// calls updatecurrentTime when page loads
+$(document).ready(function() {
+  updatecurrentTime();
+});
+// update current time every second
+setInterval(updatecurrentTime,1000);
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -31,5 +35,4 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  // TODO: Add code to display the current date in the header of the page.
-});
+  // TODO: Add code to display the current date in the header of the page
