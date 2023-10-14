@@ -45,9 +45,6 @@ $(function () {
   })
   }
 
-  $('button').on('click', function(event){
-    event.preventDefault()
-  })
 
 
   // data to input in local storage when save button is clicked
@@ -64,21 +61,35 @@ $(function () {
   ];
 
 
-  // function loadData (){
-  //   // displays the value
-  //   console.log(userData);
+  function loadData (){
+    // displays the value
 
-  //   $('.time-block').each(function() {
-  //     var thisID = $(this).attr('id');
-  //     var thisText = $(this).children('.description').val();
-  //     console.log(thisID + '//' + thisText);
+    $('.time-block').each(function() {
+      var thisID = $(this).attr('id');
+      console.log(thisID + '//');
 
-  //     // text value displays userData.text
-  //     $(this).children('.description').val(userData[thisID -9].text)
-  //   })
-  // }
+      // text value displays userData.text
+      $(this).children('.description').val(userData[thisID -9].text)
+    })
+  }
 
-  // loadData()
+  $('button').click(function(event) {
+
+    clickedText = $(event.target).parents('div').children('.description').val()
+    clickedId = $(event.target).parents('div').attr('id')
+    
+    userData[clickedId-9].id = clickedId
+    userData[clickedId-9].text = clickedText
+    console.log(userData);
+    // saving information of user data
+
+    localStorage.setItem('userData',JSON.stringify(userData));
+    // store information to local storage
+
+  })
+
+  
+  loadData()
 
  setInterval(updateCurrentTime,1000);
   setInterval(updateColors,60000)  
