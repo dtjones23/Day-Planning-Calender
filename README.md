@@ -5,7 +5,7 @@ The purpose of this project was to modify a jQuery-generated calendar that will 
 
 # Usage
 - user type events into text area and save events by pressing save
-
+![Screen Shot 2023-10-14 at 6 33 45 PM](https://github.com/dtjones23/Day-Planning-Calender/assets/142169871/c46f1287-fc26-44e5-bdc8-6baa01516c16)
 
 
 # Credits 
